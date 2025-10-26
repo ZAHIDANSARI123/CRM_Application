@@ -9,6 +9,7 @@ const User = require("./models/user.model")
 const bcrypt = require("bcryptjs");
 
 
+app.use(express.json());
 
 /**
  * Make a conneection with the mongoDB
@@ -18,7 +19,7 @@ const bcrypt = require("bcryptjs");
 
 
     try {
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/crm-app')
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/crm-app')
         console.log("Mongo Connected");
 
 
@@ -51,6 +52,9 @@ const bcrypt = require("bcryptjs");
     }
 })();
 
+
+const auth_route = require("./routes/auth.routes");
+app.use("/crm/api/v1", auth_route);
 
 const PORT = process.env.PORT || 5555;
 console.log(process.env.PORT);
