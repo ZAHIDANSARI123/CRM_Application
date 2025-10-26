@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         required : true,
         unique : true,
         lowercase : true,
-        minLenth : 10
+        minLength : 10
     },
     userType : {
         type : String,
