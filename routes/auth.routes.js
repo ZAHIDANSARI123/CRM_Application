@@ -7,6 +7,8 @@ const verifyUserReqBody = require("../middlewares/verifyUserReqBody");
 
 
 route.post("/auth/signup",[verifyUserReqBody.validateUserReqBody], authController.Signup);
+route.post("/auth/signin", authController.Signin);
+
 
 
 module.exports = route ;
