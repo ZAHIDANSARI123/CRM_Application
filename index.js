@@ -56,6 +56,12 @@ app.use(express.json());
 const auth_route = require("./routes/auth.routes");
 app.use("/crm/api/v1", auth_route);
 
+
+const user_route = require("./routes/user.router")
+app.use("/crm/api/v1", user_route)
+
+
+
 const PORT = process.env.PORT || 5555;
 console.log(process.env.PORT);
 
